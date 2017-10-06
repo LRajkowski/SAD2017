@@ -1,0 +1,110 @@
+---
+title: "SAD, 2017-10-06"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Ćwiczenie 1
+
+Zaczynamy od rzucania monetą
+```{r cars}
+throw <- sample(1:6, 600, replace=TRUE)
+table(throw)
+```
+Fantastycznie, wypisało mi tablicę wraz z kodem! No to teraz popracujemy z histogramem
+```{r}
+hist(throw, xlab="score", ylab="frequency")
+```
+Uuu, to faktycznie nie wygląda dobrze
+```{r}
+barplot(table(throw))
+```
+A to z kolei wygląda wspaniale!
+```{r}
+mean(throw)
+sd(throw)
+```
+... no cóż, wyniki zgodne z przewidywaniami.
+
+## Ćwiczenie 2
+```{r}
+rec <- runif(100, min=0, max=20)
+rec <- matrix(runif(2000,min=0,max=20),100,20)
+ahatl <- 2*apply(rec,1,mean)
+ahat2 <-(21/20)*apply(rec,1,max)
+plot(ahatl,col="red")
+par(new=T)
+plot(ahat2,col="blue",axes=T)
+install.packages("car")
+library("car")
+stock2 <- abs(stockexchange) 
+qqnorm(stock2[,1])
+qqline(stock2[,1])
+qqPlot(stock2[,1])
+m = mean(stock2[ , 1] )
+s = sd(stock2[,1] )
+
+hist(stock2, il ,probability = TRUE)
+pt <- seq(min(stock2[ , 1] ) ,max(stock2[ , 1] ) , length = 40)
+lines(pt ,dnorm(pt ,mean=m, sd=s) , col="blue")
+z <- stock2[,1]
+h<-hist(z, xlab="residual", main="Histogram with Normal Curve")
+xfit<-seq(min(z),max(z),length=40)
+yfit<-dnorm(xfit,mean=mean(z),sd=sd(z))
+lines(xfit, yfit, col="red", lwd=2)
+stock2 <- abs(stockexchange)
+z <- stock2[,1]
+y<-stock2C,21
+par(mfrow=c(2,1))
+h<-hist(z, xlab="residual", main="Histogram with Normal Curve")
+xfit<-seq(min(z),max(z),length=40)
+yfit<-dnorm(xfit,mean=mean(z),sd=sd(z))
+lines(xfit, yfit, col="red", lwd=2)
+h2<-hist(y, xlab="residual", main="Histogram with Normal Curve")
+xfit2<-seq(min(y),max(y),length=40)
+yfit2<-dnorm(xfit2,mean=mean(y),sd=sd(y))
+lines(xfit2, yfit2, col="blue", lwd=2)
+stocktrans <- log( stock2 + 0.01)
+s<-apply(stocktrans,2,sd)
+s
+m<-apply(stocktrans , 2 ,mean)
+m
+t.t est(stocktrans[ , 1] , stocktrans[, 2] ,var.equal = TRUE, paired = FALSE) 
+?t.test
+t.test(stocktrans[ , 1] , stocktrans[, 2] , alternative = "greater" , 
+  paired = FALSE, var.equal = TRUE, conf.level = 0.95)
+ ?rnorm
+ x <- rnorm(10,22,6)
+ y<-rnorm(31,16,2)
+ t.test(x,y, alternative = "two.sided", paired = FALSE, 
+ var.equal = FALSE, conf.level = 0.95)
+?var.test
+var.test(x,y,ratio=1,alternative = "two.sided",conf.level = 0.95)
+qf(c(0.025,0.975),9,30) 
+n<-16
+p<-0.3
+bindat<-rbinom(1000,n,p)
+phat <- bindat/n
+lower <- phat - 1.96*sqrt(phat*(1-phat)/n)
+upper <- phat + 1.96*sqrt(phat*(1-phat)/n)
+1 <- sum(lower>p)
+u<-sum(upper < p)
+miss <- 1+u
+n = 16
+N = 1000
+X<-matrix(rnorm(n*N,5,1.2),N,n)
+me <- apply(X,1,mean)
+s <- apply(X,1,sd)
+u<-(me - 5)/(s/sqrt(n))
+tval <-qt(0.975,n-1)
+rejectO <- sum(u>tval)+sum(u<(-1)*tval)
+binom.test(reject1,1000,conf.level=0.95) 
+?power.t.test
+power.t.test(n=16,delta=1,sd=1.2,sig.level=0.05,type = "one.sample", 
+  alternative="two.sided",strict = TRUE)
+
+```
+
